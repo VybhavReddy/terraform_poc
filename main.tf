@@ -2,10 +2,14 @@
 provider "null" {}
 
 resource "null_resource" "example" {
-    id = "32456"
+    
+provisioner "local-exec" {
+    command = "echo This command runs locally"
+ }
+
 }
 
 output "resource_name" {
-  value = null_resource.example.id
+  value = null_resource.example.triggers
 }
 
